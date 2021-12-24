@@ -2,22 +2,22 @@
 
 ---
 
-### Category Name 1 
+### Coding Projects
 
-[Project 1 Title](/sample_page)
+[Eight Queens Project (Java)](/sample_page)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 2 Title](/pdf/sample_presentation.pdf)
+[Server Access Parser (Python)](/pdf/sample_presentation.pdf)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 3 Title](http://example.com/)
+[Jupyter Notebook Project (ML)](http://example.com/)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
 
-### Category Name 2
+### Euler Problems
 
 - [Project 1 Title](http://example.com/)
 - [Project 2 Title](http://example.com/)
