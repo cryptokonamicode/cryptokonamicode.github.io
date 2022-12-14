@@ -19,11 +19,11 @@
 
 ### Euler Problems
 
-- [Project 1 Title](http://example.com/)
-- [Project 2 Title](http://example.com/)
-- [Project 3 Title](http://example.com/)
-- [Project 4 Title](http://example.com/)
-- [Project 5 Title](http://example.com/)
+- [Project 1 Title](https://cryptokonamicode.github.io/euler/1)
+- [Project 2 Title](https://cryptokonamicode.github.io/euler/2)
+- [Project 3 Title](https://cryptokonamicode.github.io/euler/3)
+- [Project 4 Title](https://cryptokonamicode.github.io/euler/4)
+- [Project 5 Title](https://cryptokonamicode.github.io/euler/5)
 
 ---
 
