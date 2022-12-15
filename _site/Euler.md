@@ -18,3 +18,5 @@ permalink: /euler/
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
+
+testing case sensitivity again
