@@ -19,11 +19,11 @@
 
 ### Euler Problems
 
-- [Problem 1](https://cryptokonamicode.github.io/euler/)
-- [Problem 2](https://cryptokonamicode.github.io/euler/)
-- [Problem 3](https://cryptokonamicode.github.io/euler/)
-- [Problem 4](https://cryptokonamicode.github.io/euler/)
-- [Problem 5](https://cryptokonamicode.github.io/euler/)
+- [Problem 1](https://cryptokonamicode.github.io/euler)
+- [Problem 2](https://cryptokonamicode.github.io/euler)
+- [Problem 3](https://cryptokonamicode.github.io/euler)
+- [Problem 4](https://cryptokonamicode.github.io/euler)
+- [Problem 5](https://cryptokonamicode.github.io/euler)
 
 ---
 
