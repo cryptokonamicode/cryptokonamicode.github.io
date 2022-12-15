@@ -4,31 +4,18 @@
 
 ### Coding Projects
 
-[Eight Queens Project (Java)](/sample_page)
+[SnackTrack (Android Studio)](/snacktrack)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Server Access Parser (Python)](/pdf/sample_presentation.pdf)
+[Duel Monsters Database (SQL)](/kingofgames)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Jupyter Notebook Project (ML)](http://example.com/)
+[Euler Problems (Python)](https://cryptokonamicode.github.io/euler)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-
-### Euler Problems
-
-- [Problem 1](https://cryptokonamicode.github.io/euler)
-- [Problem 2](https://cryptokonamicode.github.io/euler)
-- [Problem 3](https://cryptokonamicode.github.io/euler)
-- [Problem 4](https://cryptokonamicode.github.io/euler)
-- [Problem 5](https://cryptokonamicode.github.io/euler)
-
----
-
-
-
 
 ---
 <p style="font-size:11px">Page template forked from <a href="https://github.com/evanca/quick-portfolio">evanca</a></p>
