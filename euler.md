@@ -42,7 +42,21 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#Sum even numbers in the Fibonacci sequence less than 4e6
+#correct
+
+first_term = 1
+second_term = 2
+total = 2
+
+while(first_term < 4e6 and second_term < 4e6):
+  first_term += second_term
+  if first_term % 2 == 0:
+    total += first_term
+  second_term += first_term
+  if second_term % 2 == 0:
+    total += second_term
+print(total)
 ```
 </details>
 <br/>
@@ -59,7 +73,34 @@ What is the largest prime factor of the number 600851475143 ?
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#Find the largest prime factor of 600851475143
+#use trial division so it's efficient
+import math
+
+def largest_prime_factor(test_number):
+  prime_list = prime_finder(test_number)
+  for each in reversed(prime_list):
+    if test_number % each == 0:
+      return each
+  return "No prime factors."
+
+def prime_finder(n):
+  all_factors = []
+  while n % 2 == 0:
+    all_factors.append(2)
+    n //= 2
+  i = 3
+  while i * i <= n:
+    if n % i == 0:
+      all_factors.append(i)
+      n //= i
+    else:
+      i += 2
+  if n != 1: all_factors.append(n)
+  return all_factors
+  
+print(largest_prime_factor(600851475143))
+#print(largest_prime_factor(13195))
 ```
 </details>
 <br/>
@@ -76,7 +117,37 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#largest palindrome made from the product of two
+#three digit numbers. 9009 is the largest palindrome
+#from two digit numbers
+
+def largest_palindrome(digits):
+  most = ""
+  searching = True
+  largest = 0
+  for each in range(0, digits):
+    most += "9"
+  most = int(most)
+  while most ** 2 > largest:
+    for each in reversed(range(1, most+1)):
+      if is_palindrome(each * most):
+        largest = max(largest, each * most)
+        break
+    most -= 1
+  return largest
+
+def is_palindrome(n):
+  letters = str(n)
+  i = 0
+  palindrome = True
+  for each in reversed(letters):
+    if each != letters[i]:
+      palindrome = False
+      break
+    i += 1
+  return palindrome
+
+print(largest_palindrome(3))
 ```
 </details>
 <br/>
@@ -93,7 +164,50 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#Find the smallest positive number evenly divisible
+#by all numbers from 1-20. 2520 is the smallest
+#positive number evenly divisible by all 1-10
+
+def least_common_multiple(n):
+  factor_list = [each for each in range(2, n+1)]
+  #print(factor_list)
+  prime_dict = {}
+  while factor_list:
+    prime = factor_list[0]
+    prime_dict[prime] = 1
+    #power check
+    power = 2
+    while prime ** power < n:
+      prime_dict[prime] = prime_dict.get(prime) + 1
+      power += 1
+    #remove multiples
+    for each in factor_list:
+      if each % prime == 0:
+        factor_list.remove(each)
+  print(prime_dict)
+  total = 1
+  for key, value in prime_dict.items():
+    total *= key ** value
+  return total
+  
+
+print(least_common_multiple(20))
+
+'''
+So i think just find all the primes, multiply them
+together, and that should be it?
+1, 2, 3, 5, 7 = 210 
+Missing 2, 2, 3
+So eight requires three twos and nine requires
+two threes. i think that's where the extras come
+from. Find all primes a single number is composed
+of. if it is a higher number than the one on the
+list, add more.
+So like, trial division from the top.
+ignore any repeats. trying to figure out how to
+ignore repeats from lower numbers but keep
+repeats when they show up initially
+'''
 ```
 </details>
 <br/>
@@ -119,7 +233,22 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#sum of squares 1-10 = 385
+# square of sum of 1-10 = 3025
+# difference is 3025 - 385 = 2640
+# do that but with 1-100
+
+def sum_of_squares(n):
+  
+
+def square_of_sum(n):
+
+
+print(square_of_sum(10) - sum_of_squares(10))
+'''
+seems pretty straightforward?
+'''
+
 ```
 </details>
 <br/>
@@ -174,7 +303,70 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#the four adjacent digits in *thousand digit number*
+#with the highest product are 9989
+#find the product for the 13 adjacent digits with the
+#highest product
+
+def product_finder(sequence, digits):
+  if len(sequence) < digits: raise ValueError("Sequence is too short.")
+  seq_list = [each for each in sequence if each != "\n"] 
+  current_list = []
+  product = 1
+  for each in range(0, digits):
+    current_list.append(seq_list.pop(0))
+    #seq_list.remove(seq_list[0])
+  product_list = current_list[:]
+  for each in product_list:
+    product *= int(each)
+  while(seq_list):
+    if seq_list[0] > current_list[0]:
+      current_list.remove(current_list[0])
+      current_list.append(seq_list.pop(0))
+      cur_product = 1
+      for each in current_list:
+        cur_product *= int(each)
+      if cur_product > product:
+        product = cur_product
+        product_list = current_list[:]
+    else:
+      current_list.remove(current_list[0])
+      current_list.append(seq_list.pop(0))
+    #seq_list.remove(seq_list[0])
+  #print(product_list)
+  return(product)
+    
+  
+  
+
+sequence = '''73167176531330624919225119674426574742355349194934
+96983520312774506326239578318016984801869478851843
+85861560789112949495459501737958331952853208805511
+12540698747158523863050715693290963295227443043557
+66896648950445244523161731856403098711121722383113
+62229893423380308135336276614282806444486645238749
+30358907296290491560440772390713810515859307960866
+70172427121883998797908792274921901699720888093776
+65727333001053367881220235421809751254540594752243
+52584907711670556013604839586446706324415722155397
+53697817977846174064955149290862569321978468622482
+83972241375657056057490261407972968652414535100474
+82166370484403199890008895243450658541227588666881
+16427171479924442928230863465674813919123162824586
+17866458359124566529476545682848912883142607690042
+24219022671055626321111109370544217506941658960408
+07198403850962455444362981230987879927244284909188
+84580156166097919133875499200524063689912560717606
+05886116467109405077541002256983155200055935729725
+71636269561882670428252483600823257530420752963450'''
+
+print(product_finder(sequence, 4))
+
+'''
+iterate through the list
+create list with four members to store current
+highest. Test product and replace if higher.
+'''
 ```
 </details>
 <br/>
@@ -195,7 +387,30 @@ Find the product abc.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+# a **2 + b **2 = c **2. find a + b + c = 1000
+#return the product of abc
+import math
+
+def p_trip_product(total):
+  for m in reversed(range(1, int(math.sqrt(total))+1)):
+    n = (total - 2*m**2) / (2*m)
+    if (m > n) & (n > 0):
+      if int(n) == float(n):
+        if (m % 2 == 0) ^ (n % 2 == 0):
+          a = m**2 - n**2
+          b = 2*m*n
+          c = m**2 + n**2
+          print(str(a) + " " + str(b) + " " + str(c))
+          return a*b*c
+  return 0 #no triples found
+
+print(p_trip_product(100))
+'''
+process of elimination seems like it would
+get us there pretty fast
+but is there a cool way?
+Euclid's formula is the cool way
+'''
 ```
 </details>
 <br/>
@@ -212,7 +427,40 @@ Find the sum of all the primes below two million.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#the sum of prime numbers under 10 is 17
+#return sum of primes under 2e6
+
+import math
+
+def prime_sum(cap):
+  is_prime = [True]*cap
+  is_prime[0] = False
+  is_prime[1] = False
+  
+  for i in range(2, int(math.sqrt(cap) +1)):
+    index = i*2
+    while index < cap:
+      is_prime[index] = False
+      index += i
+
+  prime = []
+  
+  for i in range(cap):
+    if is_prime[i] == True:
+      prime.append(i)
+      
+  return sum(prime)
+  
+print(prime_sum(2000000))
+
+'''
+prime sieve??
+okay it ended up being prime sieve but I needed
+to use a long boolean list instead of removing
+from a list of numbers since it's faster to just
+set a location to false than to use remove,
+which looks for a value and may not even find it.
+'''
 ```
 </details>
 <br/>
