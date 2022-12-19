@@ -8,6 +8,26 @@ If we list all the natural numbers below 10 that are multiples of 3 or 5, we get
 
 Find the sum of all the multiples of 3 or 5 below 1000.
 
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">My Solution</summary>
+```python
+#Print total of all multiples of 3 and 5 lower than 1000
+#correct
+
+total = 0
+for i in range(1000):
+  if(i % 3 == 0 and not i % 5 == 0):
+    total += i
+  elif (i % 5 == 0) :
+    total += i
+print(total)
+```
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 
 
 ### 2. Even Fibonacci Numbers
