@@ -265,7 +265,31 @@ What is the 10 001st prime number?
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-soon
+#This is an adaptation of problem 10, which also uses prime sieve. 
+#I lost the file for my original problem 7 solution, and used this to find the answer.
+#I will modify this again soon to find a particular number prime, since this method does not generalize well.
+import math
+
+def prime_sum(cap):
+  is_prime = [True]*cap
+  is_prime[0] = False
+  is_prime[1] = False
+  
+  for i in range(2, int(math.sqrt(cap) +1)):
+    index = i*2
+    while index < cap:
+      is_prime[index] = False
+      index += i
+
+  prime = []
+  
+  for i in range(cap):
+    if is_prime[i] == True:
+      prime.append(i)
+      
+  return prime[10000] #changing this line to find the 10001st prime.
+  
+print(prime_sum(2000000))
 ```
 </details>
 <br/>
