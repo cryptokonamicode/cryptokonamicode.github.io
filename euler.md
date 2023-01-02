@@ -69,37 +69,37 @@ What is the largest prime factor of the number 600851475143 ?
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#Find the largest prime factor of 600851475143
-#use trial division so it's efficient
 import math
 
-def largest_prime_factor(test_number):
-  prime_list = prime_finder(test_number)
-  for each in reversed(prime_list):
-    if test_number % each == 0:
-      return each
-  return "No prime factors."
+def largest_prime_factor(factorable_number):
+  prime_list = find_smaller_primes(factorable_number)
+  for prime in reversed(prime_list):
+    if factorable_number % prime == 0:
+      return prime
+  return "no prime factors."
 
-def prime_finder(n):
-  all_factors = []
-  while n % 2 == 0:
-    all_factors.append(2)
-    n //= 2
-  i = 3
-  while i * i <= n:
-    if n % i == 0:
-      all_factors.append(i)
-      n //= i
+def find_smaller_primes(upper_bound):
+  primes = []
+  while upper_bound % 2 == 0:
+    primes.append(2)
+    upper_bound //= 2
+
+  divisor = 3
+  while divisor * divisor <= upper_bound:
+    if upper_bound % divisor == 0:
+      primes.append(divisor)
+      upper_bound //= divisor
     else:
-      i += 2
-  if n != 1: all_factors.append(n)
-  return all_factors
+      divisor += 2
+
+  if upper_bound != 1: primes.append(upper_bound)
+  return primes
   
 print(largest_prime_factor(600851475143))
-#print(largest_prime_factor(13195))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_N89S7M)
 
 {::options parse_block_html="false" /}
 
@@ -113,40 +113,34 @@ Find the largest palindrome made from the product of two 3-digit numbers.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#largest palindrome made from the product of two
-#three digit numbers. 9009 is the largest palindrome
-#from two digit numbers
-
-def largest_palindrome(digits):
-  most = ""
-  searching = True
-  largest = 0
-  for each in range(0, digits):
-    most += "9"
-  most = int(most)
-  while most ** 2 > largest:
-    for each in reversed(range(1, most+1)):
-      if is_palindrome(each * most):
-        largest = max(largest, each * most)
+def largest_palindrome_product(number_of_digits):
+  upper_bound = ""
+  largest_palindrome = 0
+  for each in range(0, number_of_digits):
+    upper_bound += "9"
+  upper_bound = int(upper_bound)
+  while upper_bound ** 2 > largest_palindrome:
+    for second_factor in reversed(range(1, upper_bound+1)):
+      if is_palindrome(second_factor * upper_bound):
+        largest_palindrome = max(largest_palindrome, second_factor * upper_bound)
         break
-    most -= 1
-  return largest
+    upper_bound -= 1
+  return largest_palindrome
 
-def is_palindrome(n):
-  letters = str(n)
-  i = 0
-  palindrome = True
-  for each in reversed(letters):
-    if each != letters[i]:
-      palindrome = False
-      break
-    i += 1
-  return palindrome
+def is_palindrome(potential_palindrome):
+  letters = str(potential_palindrome)
+  check_from_beginning = 0
+  for check_from_end in reversed(letters):
+    if check_from_end != letters[check_from_beginning]:
+      return False
+    check_from_beginning += 1
+  return True
 
-print(largest_palindrome(3))
+print(largest_palindrome_product(3))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_Q2GAZ7)
 
 {::options parse_block_html="false" /}
 
