@@ -12,9 +12,6 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#Print total of all multiples of 3 and 5 lower than 1000
-#correct
-
 total = 0
 for i in range(1000):
   if(i % 3 == 0 and not i % 5 == 0):
@@ -25,6 +22,8 @@ print(total)
 ```
 </details>
 <br/>
+
+[Browser Executable](http://tpcg.io/_59GU5T)
 
 {::options parse_block_html="false" /}
 
