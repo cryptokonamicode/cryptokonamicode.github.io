@@ -22,8 +22,7 @@ print(total)
 ```
 </details>
 <br/>
-
-[Browser Executable](http://tpcg.io/_59GU5T)
+[Browser Executable Version](http://tpcg.io/_59GU5T)
 
 {::options parse_block_html="false" /}
 
@@ -41,9 +40,6 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#Sum even numbers in the Fibonacci sequence less than 4e6
-#correct
-
 first_term = 1
 second_term = 2
 total = 2
@@ -59,6 +55,7 @@ print(total)
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_0YXYWY)
 
 {::options parse_block_html="false" /}
 
