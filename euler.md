@@ -154,53 +154,40 @@ What is the smallest positive number that is evenly divisible by all of the numb
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#Find the smallest positive number evenly divisible
-#by all numbers from 1-20. 2520 is the smallest
-#positive number evenly divisible by all 1-10
-
-def least_common_multiple(n):
-  factor_list = [each for each in range(2, n+1)]
-  #print(factor_list)
-  prime_dict = {}
-  while factor_list:
-    prime = factor_list[0]
-    prime_dict[prime] = 1
-    #power check
-    power = 2
-    while prime ** power < n:
-      prime_dict[prime] = prime_dict.get(prime) + 1
-      power += 1
-    #remove multiples
-    for each in factor_list:
-      if each % prime == 0:
-        factor_list.remove(each)
-  print(prime_dict)
+def least_common_multiple(upper_bound):
+  possible_factors_remaining = [each for each in range(2, upper_bound+1)]
+  primes_and_powers = {}
+  
+  while possible_factors_remaining:
+    prime_factor = possible_factors_remaining[0]
+    primes_and_powers[prime_factor] = 1
+    primes_and_powers = find_nonprime_factors(primes_and_powers, prime_factor, upper_bound)
+    possible_factors_remaining = remove_multiples(possible_factors_remaining, prime_factor)
+  
   total = 1
-  for key, value in prime_dict.items():
-    total *= key ** value
+  for factor, exponent in primes_and_powers.items():
+    total *= factor ** exponent
   return total
+
+def find_nonprime_factors(primes_and_powers, prime_factor, upper_bound):
+    power = 2
+    while prime_factor ** power < upper_bound:
+      primes_and_powers[prime_factor] = primes_and_powers.get(prime_factor) + 1
+      power += 1
+    return primes_and_powers
+  
+def remove_multiples(possible_factors_remaining, prime_factor):
+    for multiple in possible_factors_remaining:
+      if multiple % prime_factor == 0:
+        possible_factors_remaining.remove(multiple)
+    return possible_factors_remaining
   
 
 print(least_common_multiple(20))
-
-'''
-So i think just find all the primes, multiply them
-together, and that should be it?
-1, 2, 3, 5, 7 = 210 
-Missing 2, 2, 3
-So eight requires three twos and nine requires
-two threes. i think that's where the extras come
-from. Find all primes a single number is composed
-of. if it is a higher number than the one on the
-list, add more.
-So like, trial division from the top.
-ignore any repeats. trying to figure out how to
-ignore repeats from lower numbers but keep
-repeats when they show up initially
-'''
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_LSD97K)
 
 {::options parse_block_html="false" /}
 
