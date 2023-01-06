@@ -195,15 +195,14 @@ print(least_common_multiple(20))
 
 The sum of the squares of the first ten natural numbers is,
 
-image testing
-<img src="images/sum_square1?raw=true"/>
+<img src="images/sum_square1.PNG?raw=true"/>
 
 The square of the sum of the first ten natural numbers is,
 
-<img src="images/sum_square2?raw=true"/>
+<img src="images/sum_square2.PNG?raw=true"/>
 
 Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is
-<img src="images/sum_square3?raw=true"/>.
+<img src="images/sum_square3.PNG?raw=true"/>.
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
@@ -211,23 +210,23 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-def sum_of_squares(upper_bound):
-    sum_of_squares = 0
-    for each in range(1, upper_bound+1):
-        sum_of_squares += each ** 2
-    return sum_of_squares
-    
 def square_of_sum(upper_bound):
     sum_to_be_squared = 0
     for each in range(1, upper_bound+1):
         sum_to_be_squared += each
     return sum_to_be_squared ** 2
+	
+def sum_of_squares(upper_bound):
+    sum_of_squares = 0
+    for each in range(1, upper_bound+1):
+        sum_of_squares += each ** 2
+    return sum_of_squares
 
 print(square_of_sum(100) - sum_of_squares(100))
 ```
 </details>
 <br/>
-[Browser Executable Version](http://tpcg.io/_F6ACV4)
+[Browser Executable Version](http://tpcg.io/_KIMC2B)
 
 {::options parse_block_html="false" /}
 
