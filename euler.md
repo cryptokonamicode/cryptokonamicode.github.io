@@ -210,25 +210,23 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#sum of squares 1-10 = 385
-# square of sum of 1-10 = 3025
-# difference is 3025 - 385 = 2640
-# do that but with 1-100
+def sum_of_squares(upper_bound):
+    sum_of_squares = 0
+    for each in range(1, upper_bound+1):
+        sum_of_squares += each ** 2
+    return sum_of_squares
+    
+def square_of_sum(upper_bound):
+    sum_to_be_squared = 0
+    for each in range(1, upper_bound+1):
+        sum_to_be_squared += each
+    return sum_to_be_squared ** 2
 
-def sum_of_squares(n):
-  
-
-def square_of_sum(n):
-
-
-print(square_of_sum(10) - sum_of_squares(10))
-'''
-seems pretty straightforward?
-'''
-
+print(square_of_sum(100) - sum_of_squares(100))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_F6ACV4)
 
 {::options parse_block_html="false" /}
 
