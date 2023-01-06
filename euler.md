@@ -1,6 +1,6 @@
 ## Euler Problems
 
-**Project description:** Project Euler is a collection of interesting mathematical problems that are useful for learning and applying math theorems to programming. These are the ones I have completed so far.
+**Project description:** Project Euler is a collection of interesting mathematical problems that are useful for learning and applying math theorems to programming. Using the techniques from Clean Code, my goal is to make these solutions as readable as possible. These are the ones I have completed so far.
 
 ### 1. Multiples of 3 or 5
 
@@ -13,16 +13,14 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 <details><summary markdown="span">My Solution</summary>
 ```python
 total = 0
-for i in range(1000):
-  if(i % 3 == 0 and not i % 5 == 0):
-    total += i
-  elif (i % 5 == 0) :
-    total += i
+for potential_multiple in range(1000):
+  if(potential_multiple % 3 == 0 or potential_multiple % 5 == 0):
+    total += potential_multiple
 print(total)
 ```
 </details>
 <br/>
-[Browser Executable Version](http://tpcg.io/_59GU5T)
+[Browser Executable Version](http://tpcg.io/_VPLZD4)
 
 {::options parse_block_html="false" /}
 
