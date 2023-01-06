@@ -195,14 +195,15 @@ print(least_common_multiple(20))
 
 The sum of the squares of the first ten natural numbers is,
 
-<img src="images/sum_square1.png?raw=true"/>
+image testing
+<img src="images/sum_square1?raw=true"/>
 
 The square of the sum of the first ten natural numbers is,
 
-<img src="images/sum_square2.png?raw=true"/>
+<img src="images/sum_square2?raw=true"/>
 
 Hence the difference between the sum of the squares of the first ten natural numbers and the square of the sum is
-<img src="images/sum_square3.png?raw=true"/>.
+<img src="images/sum_square3?raw=true"/>.
 
 Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
