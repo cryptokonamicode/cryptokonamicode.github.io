@@ -238,31 +238,34 @@ What is the 10 001st prime number?
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#This is an adaptation of problem 10, which also uses prime sieve. 
-#I lost the file for my original problem 7 solution, and used this to find the answer.
-#I will modify this again soon to find a particular number prime, since this method does not generalize well.
 import math
 
-def prime_sum(cap):
-  is_prime = [True]*cap
-  is_prime[0] = False
-  is_prime[1] = False
-  
-  for i in range(2, int(math.sqrt(cap) +1)):
-    index = i*2
-    while index < cap:
-      is_prime[index] = False
-      index += i
 
-  prime = []
-  
-  for i in range(cap):
-    if is_prime[i] == True:
-      prime.append(i)
-      
-  return prime[10000] #changing this line to find the 10001st prime.
-  
-print(prime_sum(2000000))
+def is_prime(potential_prime):
+  if (potential_prime == 1): return False
+  if (potential_prime < 4): return True
+  if (potential_prime % 2 == 0): return False
+  if (potential_prime < 9): return True
+  if (potential_prime % 3 == 0): return False
+  max_prime_factor = math.floor(math.sqrt(potential_prime))
+  f = 5
+  while f <= max_prime_factor:
+    if potential_prime % f == 0: return False
+    if potential_prime % (f + 2) == 0: return False
+    f += 6
+  return True
+
+
+def nth_prime(n):
+  count = 1
+  candidate = 1
+  while (count < n):
+    candidate = candidate + 2
+    if (is_prime(candidate)): count += 1
+  return candidate
+
+
+print(nth_prime(10001))
 ```
 </details>
 <br/>
@@ -424,40 +427,31 @@ Find the sum of all the primes below two million.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#the sum of prime numbers under 10 is 17
-#return sum of primes under 2e6
-
 import math
 
-def prime_sum(cap):
-  is_prime = [True]*cap
+
+def prime_sum(upper_bound):
+  is_prime = [True] * upper_bound
   is_prime[0] = False
   is_prime[1] = False
-  
-  for i in range(2, int(math.sqrt(cap) +1)):
-    index = i*2
-    while index < cap:
-      is_prime[index] = False
-      index += i
+  max_prime_factor = math.floor(math.sqrt(upper_bound))
+
+  for prime in range(2, max_prime_factor + 1):
+    multiple = prime * 2
+    while multiple < upper_bound:
+      is_prime[multiple] = False
+      multiple += prime
 
   prime = []
-  
-  for i in range(cap):
-    if is_prime[i] == True:
-      prime.append(i)
-      
-  return sum(prime)
-  
-print(prime_sum(2000000))
 
-'''
-prime sieve??
-okay it ended up being prime sieve but I needed
-to use a long boolean list instead of removing
-from a list of numbers since it's faster to just
-set a location to false than to use remove,
-which looks for a value and may not even find it.
-'''
+  for confirmed_prime in range(upper_bound):
+    if is_prime[confirmed_prime] == True:
+      prime.append(confirmed_prime)
+
+  return sum(prime)
+
+
+print(prime_sum(2000000))
 ```
 </details>
 <br/>
