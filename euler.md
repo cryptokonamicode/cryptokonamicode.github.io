@@ -248,11 +248,11 @@ def is_prime(potential_prime):
   if (potential_prime < 9): return True
   if (potential_prime % 3 == 0): return False
   max_prime_factor = math.floor(math.sqrt(potential_prime))
-  f = 5
-  while f <= max_prime_factor:
-    if potential_prime % f == 0: return False
-    if potential_prime % (f + 2) == 0: return False
-    f += 6
+  prime_factor = 5
+  while prime_factor <= max_prime_factor:
+    if potential_prime % prime_factor == 0: return False
+    if potential_prime % (prime_factor + 2) == 0: return False
+    prime_factor += 6
   return True
 
 
@@ -269,6 +269,7 @@ print(nth_prime(10001))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_55A2BC)
 
 {::options parse_block_html="false" /}
 
