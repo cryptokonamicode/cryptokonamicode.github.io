@@ -362,33 +362,30 @@ Find the product abc.
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-# a **2 + b **2 = c **2. find a + b + c = 1000
-#return the product of abc
 import math
 
-def p_trip_product(total):
+def pythagorean_triple_product(total):
   for m in reversed(range(1, int(math.sqrt(total))+1)):
     n = (total - 2*m**2) / (2*m)
-    if (m > n) & (n > 0):
-      if int(n) == float(n):
-        if (m % 2 == 0) ^ (n % 2 == 0):
-          a = m**2 - n**2
-          b = 2*m*n
-          c = m**2 + n**2
-          print(str(a) + " " + str(b) + " " + str(c))
-          return a*b*c
-  return 0 #no triples found
+    a,b,c = euclid_formula(m,n)
+    if (a>0) & (b>0) & (c>0): return a*b*c
+  return 0
 
-print(p_trip_product(100))
-'''
-process of elimination seems like it would
-get us there pretty fast
-but is there a cool way?
-Euclid's formula is the cool way
-'''
+def euclid_formula(m, n):
+    if not ((m > n) & (n > 0)): return 0,0,0
+    if int(n) != float(n): return 0,0,0
+    if not ((m % 2 == 0) ^ (n % 2 == 0)): return 0,0,0
+    
+    a = m**2 - n**2
+    b = 2*m*n
+    c = m**2 + n**2
+    return a,b,c
+
+print(pythagorean_triple_product(1000))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_DIT1IE)
 
 {::options parse_block_html="false" /}
 
