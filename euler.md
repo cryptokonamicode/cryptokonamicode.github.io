@@ -304,41 +304,20 @@ Find the thirteen adjacent digits in the 1000-digit number that have the greates
 
 <details><summary markdown="span">My Solution</summary>
 ```python
-#the four adjacent digits in *thousand digit number*
-#with the highest product are 9989
-#find the product for the 13 adjacent digits with the
-#highest product
+import math
 
-def product_finder(sequence, digits):
-  if len(sequence) < digits: raise ValueError("Sequence is too short.")
-  seq_list = [each for each in sequence if each != "\n"] 
-  current_list = []
+def product_finder(sequence_with_newlines, digits):
+  if len(sequence_with_newlines) < digits: raise ValueError("Sequence is too short.")
+  sequence = [int(every_number) for every_number in sequence_with_newlines if every_number != "\n"] 
+  candidates = []
+  for candidate_initialization in range(0, digits):
+    candidates.append(sequence.pop(0))
   product = 1
-  for each in range(0, digits):
-    current_list.append(seq_list.pop(0))
-    #seq_list.remove(seq_list[0])
-  product_list = current_list[:]
-  for each in product_list:
-    product *= int(each)
-  while(seq_list):
-    if seq_list[0] > current_list[0]:
-      current_list.remove(current_list[0])
-      current_list.append(seq_list.pop(0))
-      cur_product = 1
-      for each in current_list:
-        cur_product *= int(each)
-      if cur_product > product:
-        product = cur_product
-        product_list = current_list[:]
-    else:
-      current_list.remove(current_list[0])
-      current_list.append(seq_list.pop(0))
-    #seq_list.remove(seq_list[0])
-  #print(product_list)
-  return(product)
-    
-  
-  
+  while(sequence):
+    candidates.remove(candidates[0])
+    candidates.append(sequence.pop(0))
+    product = max(product, math.prod(candidates))
+  return product
 
 sequence = '''73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
@@ -361,16 +340,11 @@ sequence = '''73167176531330624919225119674426574742355349194934
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450'''
 
-print(product_finder(sequence, 4))
-
-'''
-iterate through the list
-create list with four members to store current
-highest. Test product and replace if higher.
-'''
+print(product_finder(sequence, 13))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_J5HTW2)
 
 {::options parse_block_html="false" /}
 
