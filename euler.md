@@ -453,6 +453,7 @@ import math
 def main(grid, digits):
 	array = grid.split("\n")
 	print(array)
+	print(len(array)) #confirmed 20
 	#convert to 2D array
 	#split into sequences, send to product_finder
 	#return largest product
