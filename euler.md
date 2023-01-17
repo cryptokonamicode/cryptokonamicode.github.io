@@ -431,4 +431,24 @@ print(prime_sum(2000000))
 
 {::options parse_block_html="false" /}
 
+### 11. Largest Product in a Grid
+
+In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
+<img src="images/20x20grid.PNG?raw=true"/>
+
+The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
+
+What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the 20×20 grid?
+
+{::options parse_block_html="true" /}
+
+<details><summary markdown="span">My Solution</summary>
+```python
+#still working on this one
+```
+</details>
+<br/>
+
+{::options parse_block_html="false" /}
+
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
