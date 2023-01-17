@@ -427,6 +427,7 @@ print(prime_sum(2000000))
 ```
 </details>
 <br/>
+[Browser Executable Version](http://tpcg.io/_DZJN83)
 
 {::options parse_block_html="false" /}
 
